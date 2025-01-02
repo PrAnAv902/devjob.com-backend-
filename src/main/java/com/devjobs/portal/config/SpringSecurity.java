@@ -41,10 +41,9 @@ public class SpringSecurity {
 
     @Bean
     CorsConfigurationSource corsConfigurationSource(){
-        System.out.println(corsUrl);
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowedHeaders(List.of("Authorization","Origin", "Content-Type"));
-        corsConfiguration.setAllowedOrigins(List.of(corsUrl));
+        corsConfiguration.setAllowedOrigins(List.of("https://devjobscom.vercel.app/"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PUT","OPTIONS","PATCH", "DELETE"));
         corsConfiguration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
