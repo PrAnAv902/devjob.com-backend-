@@ -2,6 +2,7 @@ package com.devjobs.portal.config;
 import com.devjobs.portal.filter.JwtFilter;
 import com.devjobs.portal.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,18 +27,23 @@ import java.util.List;
 @EnableWebSecurity
 public class SpringSecurity {
 
-
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
+
     @Autowired
     private JwtFilter jwtFilter;
+
+
+    @Value("${cross.origin.url")
+    private String corsUrl;
+
 
     @Bean
     CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowedHeaders(List.of("Authorization","Origin", "Content-Type"));
-        corsConfiguration.setAllowedOrigins(List.of("http://localhost:3000"));
+        corsConfiguration.setAllowedOrigins(List.of(corsUrl));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PUT","OPTIONS","PATCH", "DELETE"));
         corsConfiguration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
