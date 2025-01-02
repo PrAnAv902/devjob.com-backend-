@@ -4,5 +4,5 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/portal-0.0.1-SNAPSHOT.jar portal.jar
-EXPORT 8080
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","portal.jar"]
