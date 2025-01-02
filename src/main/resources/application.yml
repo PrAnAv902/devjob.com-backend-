@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: portal
+  data:
+    mongodb:
+      uri: mongodb+srv://Pranav:85gXmkLK@devjobs.yuivc.mongodb.net/?retryWrites=true&w=majority&appName=Devjobs
+      username: Pranav
+      password: 85gXmkLK
+      database: DevjobsDB
+      auto-index-creation: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: devjobs.suport@gmail.com
+    password: cxhgihngwyxfgqie
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+cross:
+  origin:
+    url: http://localhost:3000/
+
+
+CLOUDINARY_URL: cloudinary://521628351325144:4M-fdireC9pw2oIOlgwJmuN47Vs@dwtmx7rqo
+
