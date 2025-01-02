@@ -177,7 +177,7 @@ public class PublicController {
             return new ResponseEntity<>(response,HttpStatus.CONFLICT);
         }
         int otpGenerator = extraService.randomNumberGeneration(99999999,10000000);
-        String url = "http://localhost:3000/reset-password/" + String.valueOf(otpGenerator);
+        String url = "https://devjobscom.vercel.app/reset-password/" + String.valueOf(otpGenerator);
         String data = "Hi," +  System.lineSeparator()   +  System.lineSeparator() +  System.lineSeparator() + "Access this link " +  url + " to reset your password." +  System.lineSeparator() +  System.lineSeparator()  + "Regards" +  System.lineSeparator()  + "Devjobs Team";
         emailService.sendMail(email,"Link for password reset",data);
         otpService.createOtpEntry(otpGenerator,email);
